@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Finder - Discover Amazing Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+               <link rel="icon" type="image/png" href="favicon.png">
+          
+
+</head>
+<body>
+    <!-- Animated Gradient Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-utensils"></i>
+                <span>Recipe Finder</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#categories" class="nav-link">Categories</a></li>
+                <li><a href="#favorites" class="nav-link" id="favoritesLink">
+                    <i class="fas fa-heart"></i> Favorites <span class="favorites-count">0</span>
+                </a></li>
+                <li><a href="#meal-planner" class="nav-link">Meal Planner</a></li>
+                <li><a href="#grocery-list" class="nav-link">Grocery List</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle">
+                    <i class="fas fa-language"></i>
+                    <span class="lang-text">EN</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title" data-en="Discover Amazing Recipes" data-hi="अद्भुत व्यंजन खोजें">Discover Amazing Recipes</h1>
+                <p class="hero-subtitle" data-en="Find your next favorite dish with smart search and AI suggestions" data-hi="स्मार्ट खोज और AI सुझावों के साथ अपना अगला पसंदीदा व्यंजन खोजें">Find your next favorite dish with smart search and AI suggestions</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section glass">
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search recipes by name or ingredient…" data-en="Search recipes by name or ingredient…" data-hi="नाम या सामग्री से व्यंजन खोजें…">
+                    <button class="voice-search-btn" id="voiceSearchBtn" title="Voice Search">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+
+                <!-- Filter Options -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label><i class="fas fa-drumstick-bite"></i> Meal Type</label>
+                        <select id="mealTypeFilter" class="filter-select glass">
+                            <option value="">All</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snacks</option>
+                            <option value="dessert">Desserts</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-globe"></i> Cuisine</label>
+                        <select id="cuisineFilter" class="filter-select glass">
+                            <option value="">All</option>
+                            <option value="indian">Indian</option>
+                            <option value="italian">Italian</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="american">American</option>
+                            <option value="thai">Thai</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-leaf"></i> Diet</label>
+                        <select id="dietFilter" class="filter-select glass">
+                            <option value="">All</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="non-vegetarian">Non-Veg</option>
+                            <option value="high-protein">High Protein</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-clock"></i> Time</label>
+                        <select id="timeFilter" class="filter-select glass">
+                            <option value="">Any</option>
+                            <option value="15">Under 15 min</option>
+                            <option value="30">Under 30 min</option>
+                            <option value="60">Under 1 hour</option>
+                            <option value="120">1+ hours</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label><i class="fas fa-sort"></i> Sort By</label>
+                        <select id="sortFilter" class="filter-select glass">
+                            <option value="popularity">Popularity</option>
+                            <option value="rating">Rating</option>
+                            <option value="newest">Newest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Smart Suggestions -->
+        <section class="suggestions-section" id="suggestions">
+            <h2 class="section-title" data-en="Today's Suggestions for You" data-hi="आपके लिए आज के सुझाव">Today's Suggestions for You</h2>
+            <div class="suggestions-container">
+                <div class="suggestion-card glass">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h3 data-en="Today's Healthy Picks" data-hi="आज के स्वस्थ विकल्प">Today's Healthy Picks</h3>
+                </div>
+                <div class="suggestion-card glass">
+                    <i class="fas fa-bolt"></i>
+                    <h3 data-en="Quick Meals for Busy Day" data-hi="व्यस्त दिन के लिए त्वरित भोजन">Quick Meals for Busy Day</h3>
+                </div>
+                <div class="suggestion-card glass">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3 data-en="High Protein Recipes" data-hi="उच्च प्रोटीन व्यंजन">High Protein Recipes</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories-section" id="categories">
+            <h2 class="section-title" data-en="Browse by Category" data-hi="श्रेणी के अनुसार ब्राउज़ करें">Browse by Category</h2>
+            <div class="categories-scroll">
+                <div class="category-card glass" data-category="breakfast">
+                    <i class="fas fa-bacon"></i>
+                    <span data-en="Breakfast" data-hi="नाश्ता">Breakfast</span>
+                </div>
+                <div class="category-card glass" data-category="indian">
+                    <i class="fas fa-pepper-hot"></i>
+                    <span data-en="Indian" data-hi="भारतीय">Indian</span>
+                </div>
+                <div class="category-card glass" data-category="italian">
+                    <i class="fas fa-pizza-slice"></i>
+                    <span data-en="Italian" data-hi="इतालवी">Italian</span>
+                </div>
+                <div class="category-card glass" data-category="chinese">
+                    <i class="fas fa-bowl-rice"></i>
+                    <span data-en="Chinese" data-hi="चीनी">Chinese</span>
+                </div>
+                <div class="category-card glass" data-category="dessert">
+                    <i class="fas fa-ice-cream"></i>
+                    <span data-en="Desserts" data-hi="मिठाई">Desserts</span>
+                </div>
+                <div class="category-card glass" data-category="vegetarian">
+                    <i class="fas fa-carrot"></i>
+                    <span data-en="Healthy" data-hi="स्वस्थ">Healthy</span>
+                </div>
+                <div class="category-card glass" data-category="spicy">
+                    <i class="fas fa-fire"></i>
+                    <span data-en="Spicy" data-hi="मसालेदार">Spicy</span>
+                </div>
+                <div class="category-card glass" data-category="quick">
+                    <i class="fas fa-clock"></i>
+                    <span data-en="Quick Meals" data-hi="त्वरित भोजन">Quick Meals</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recently Viewed -->
+        <section class="recently-viewed-section" id="recentlyViewed" style="display: none;">
+            <h2 class="section-title" data-en="Recently Viewed" data-hi="हाल ही में देखा गया">Recently Viewed</h2>
+            <div class="recently-viewed-container" id="recentlyViewedContainer"></div>
+        </section>
+
+        <!-- Recipe Cards Section -->
+        <section class="recipes-section" id="recipes">
+            <h2 class="section-title" data-en="Recipes for You" data-hi="आपके लिए व्यंजन">Recipes for You</h2>
+            <div class="loading-skeleton" id="loadingSkeleton">
+                <div class="skeleton-card glass"></div>
+                <div class="skeleton-card glass"></div>
+                <div class="skeleton-card glass"></div>
+                <div class="skeleton-card glass"></div>
+                <div class="skeleton-card glass"></div>
+                <div class="skeleton-card glass"></div>
+            </div>
+            <div class="recipes-grid" id="recipesGrid"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p data-en="No recipes found. Try different filters!" data-hi="कोई व्यंजन नहीं मिला। अलग फ़िल्टर आज़माएँ!">No recipes found. Try different filters!</p>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section class="favorites-section" id="favorites" style="display: none;">
+            <h2 class="section-title" data-en="Your Favorite Recipes" data-hi="आपके पसंदीदा व्यंजन">Your Favorite Recipes</h2>
+            <div class="recipes-grid" id="favoritesGrid"></div>
+            <div class="no-favorites" id="noFavorites">
+                <i class="fas fa-heart-crack"></i>
+                <p data-en="No favorites yet. Start adding recipes you love!" data-hi="अभी तक कोई पसंदीदा नहीं। जो व्यंजन आपको पसंद हों उन्हें जोड़ना शुरू करें!">No favorites yet. Start adding recipes you love!</p>
+            </div>
+        </section>
+
+        <!-- Meal Planner Section -->
+        <section class="meal-planner-section" id="meal-planner" style="display: none;">
+            <h2 class="section-title" data-en="Weekly Meal Planner" data-hi="साप्ताहिक भोजन योजनाकार">Weekly Meal Planner</h2>
+            <div class="meal-planner-container glass">
+                <table class="meal-planner-table">
+                    <thead>
+                        <tr>
+                            <th data-en="Day" data-hi="दिन">Day</th>
+                            <th data-en="Breakfast" data-hi="नाश्ता">Breakfast</th>
+                            <th data-en="Lunch" data-hi="दोपहर का भोजन">Lunch</th>
+                            <th data-en="Dinner" data-hi="रात का खाना">Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mealPlannerBody">
+                        <!-- Days will be generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn-primary" id="clearMealPlan">
+                <i class="fas fa-trash"></i>
+                <span data-en="Clear Meal Plan" data-hi="भोजन योजना साफ़ करें">Clear Meal Plan</span>
+            </button>
+        </section>
+
+        <!-- Grocery List Section -->
+        <section class="grocery-list-section" id="grocery-list" style="display: none;">
+            <h2 class="section-title" data-en="Grocery List" data-hi="किराने की सूची">Grocery List</h2>
+            <div class="grocery-container glass">
+                <div class="grocery-list" id="groceryListItems">
+                    <p class="empty-grocery" data-en="No ingredients added yet. Open a recipe and add ingredients!" data-hi="अभी तक कोई सामग्री नहीं जोड़ी गई। एक रेसिपी खोलें और सामग्री जोड़ें!">No ingredients added yet. Open a recipe and add ingredients!</p>
+                </div>
+                <div class="grocery-actions">
+                    <button class="btn-secondary" id="downloadGroceryList">
+                        <i class="fas fa-download"></i>
+                        <span data-en="Download List" data-hi="सूची डाउनलोड करें">Download List</span>
+                    </button>
+                    <button class="btn-secondary" id="printGroceryList">
+                        <i class="fas fa-print"></i>
+                        <span data-en="Print List" data-hi="सूची प्रिंट करें">Print List</span>
+                    </button>
+                    <button class="btn-danger" id="clearGroceryList">
+                        <i class="fas fa-trash"></i>
+                        <span data-en="Clear List" data-hi="सूची साफ़ करें">Clear List</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Recipe Detail Modal -->
+    <div class="modal" id="recipeModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content glass">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-en="About Recipe Finder" data-hi="रेसिपी फाइंडर के बारे में">About Recipe Finder</h3>
+                <p data-en="Made with passion for food & code" data-hi="भोजन और कोड के लिए जुनून के साथ बनाया गया">Made with passion for food & code</p>
+                <p data-en="Built for learning, creativity, and real-world projects." data-hi="सीखने, रचनात्मकता और वास्तविक दुनिया की परियोजनाओं के लिए बनाया गया।">Built for learning, creativity, and real-world projects.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-en="Connect" data-hi="जुड़ें">Connect</h3>
+                <div class="social-links">
+                    <a href="https://github.com/vishesh7737" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/vishesh-jaiswal-382249350" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+
+                     <a href="mailto:visheshjayaswal8910@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Gmail</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Recipe Finder | Designed & Developed by Vishesh Jaiswal</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Cooking Timer Modal -->
+    <div class="timer-modal" id="timerModal" style="display: none;">
+        <div class="timer-content glass">
+            <h3 data-en="Cooking Timer" data-hi="खाना पकाने का टाइमर">Cooking Timer</h3>
+            <div class="timer-display" id="timerDisplay">00:00</div>
+            <div class="timer-controls">
+                <button class="btn-primary" id="startTimer" data-en="Start" data-hi="शुरू करें">Start</button>
+                <button class="btn-secondary" id="pauseTimer" data-en="Pause" data-hi="रोकें">Pause</button>
+                <button class="btn-danger" id="resetTimer" data-en="Reset" data-hi="रीसेट करें">Reset</button>
+            </div>
+            <button class="timer-close" id="timerClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
